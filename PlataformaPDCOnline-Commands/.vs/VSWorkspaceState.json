@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\PlataformaPDCOnline",
+    "\\src\\PlataformaPDCOnline\\Internals",
+    "\\src\\PlataformaPDCOnline\\Internals\\applicationInsights",
+    "\\src\\PlataformaPDCOnline\\Internals\\pdcOnline",
+    "\\src\\PlataformaPDCOnline\\Internals\\pdcOnline\\Sender",
+    "\\src\\PlataformaPDCOnline\\Internals\\plataforma"
+  ],
+  "SelectedNode": "\\src\\PlataformaPDCOnline\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}

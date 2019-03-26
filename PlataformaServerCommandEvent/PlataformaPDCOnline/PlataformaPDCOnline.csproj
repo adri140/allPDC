@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>876640dd-65b7-42ad-a0aa-36f0cccc3a14</UserSecretsId>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="Pdc.Denormalization" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.DistributedLocks.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.DistributedLocks.Redis" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Domain" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Hosting" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Messaging" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Messaging.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Messaging.ServiceBus" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Persistence.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Persistence.DocumentDB" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.UnitOfWork" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.UnitOfWork.Abstractions" Version="1.0.0-beta.9" />
+  </ItemGroup>
+
+</Project>

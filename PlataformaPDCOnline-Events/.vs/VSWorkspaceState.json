@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\OdbcDatabase",
+    "\\src\\OdbcDatabase\\database",
+    "\\src\\OdbcDatabase\\excepciones",
+    "\\src\\PlataformaPDCOnline",
+    "\\src\\PlataformaPDCOnline\\internals",
+    "\\src\\PlataformaPDCOnline\\internals\\pdcOnline"
+  ],
+  "SelectedNode": "\\src\\PlataformaPDCOnline\\internals\\pdcOnline\\Receiver.cs",
+  "PreviewInSolutionExplorer": false
+}

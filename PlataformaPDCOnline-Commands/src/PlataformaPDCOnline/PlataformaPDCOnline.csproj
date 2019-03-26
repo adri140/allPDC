@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>876640dd-65b7-42ad-a0aa-36f0cccc3a14</UserSecretsId>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CommandsPlataforma\**" />
+    <EmbeddedResource Remove="CommandsPlataforma\**" />
+    <None Remove="CommandsPlataforma\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.9.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer" Version="2.9.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Pdc.Denormalization" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.DistributedLocks.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.DistributedLocks.Redis" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Domain" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Hosting" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Messaging" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Messaging.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Messaging.ServiceBus" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Persistence.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.Persistence.DocumentDB" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.UnitOfWork" Version="1.0.0-beta.9" />
+    <PackageReference Include="Pdc.UnitOfWork.Abstractions" Version="1.0.0-beta.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OdbcDatabase\OdbcDatabase.csproj" />
+  </ItemGroup>
+
+</Project>

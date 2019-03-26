@@ -1,0 +1,14 @@
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\PlataformaPDCOnline.deps.json
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\PlataformaPDCOnline.runtimeconfig.json
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\PlataformaPDCOnline.runtimeconfig.dev.json
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\PlataformaPDCOnline.dll
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\PlataformaPDCOnline.pdb
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.csprojAssemblyReference.cache
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.csproj.CoreCompileInputs.cache
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.AssemblyInfoInputs.cache
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.AssemblyInfo.cs
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.dll
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.pdb
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\OdbcDatabase.dll
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\OdbcDatabase.pdb
+C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.csproj.CopyComplete

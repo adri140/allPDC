@@ -1,0 +1,60 @@
+
+ProjectName: PlataformaPDCOnline
+
+Namespaces:
+    -Commands => PlataformaPDCOnline.Editable.pdcOnline.Commands
+    -Events => PlataformaPDCOnline.Editable.pdcOnline.Events;
+
+    -CommandsHandlers => PlataformaPDCOnline.Editable.CommandsHandlers
+
+    -EventsHandlers => PlataformaPDCOnline.Editable.EventsHandlers
+
+    -Searchers => PlataformaPDCOnline.Editable.Searchers
+
+    -ISaga => PlataformaPDCOnline.Editable.ClassTab
+
+!!Los Namespaces deben ser iguales en todos los projectos, de lo contrario no se encontraran los typos, así como el nombre del projecto!!
+
+Que són?
+    -Commands: Són los mensages que se enviaran a un unico receptor, en nuestro caso este sera la nuve.
+    -Events: Són los mensages que se envian a uno o muchos clientes, los quales deven estar suscriptos a estos.
+    -CommandsHandlers: Són los metodos por los quales un command se processa y a partir de esto se genera un evento.
+    -EventsHandlers: Són los metodos que processan el evento recivido, mediante una suscripción.
+    -Searchers: Són los metodos que comprovaran y validaran que cambios són y si los hay entre nuestro Informix y la base de datos del marc
+
+Normativas respecto a nombres de classes:
+    -Commands:
+        Deve empezar por el nombre de la accion que se deve realizar, seguido por el nombre de la tabla de la base de datos Informix
+        Ej: 'Create' + 'WebUser', donde 'Create' es el nombre de la acción a realizar y 'WebUser' es el nombre de la tabla de la base de datos
+        Resultado: 'CreateWebUser'
+
+    -Events:
+        Deve empezar por el nombre de la tabla de la base de datos Informix, seguido por el nombre de la accion realizada
+        Ej: 'WebUser' + 'Created', donde 'WebUser' es el nombre de la tabla de la base de datos y 'Created' es el nombre de la acción realizada
+        Resultado: 'WebUserCreated'
+
+    -Searchers: 
+        Deve empezar por la palabra 'Search', más la accion que se deve hacer, más el nombre de la tabla de la base de datos
+        Ej: 'Search' + 'Create' + 'WebUser', donde 'Search' es busca, 'Create' es la accion que se deve de realizar y 'WebUser' es el nombre de la tabla de la base de datos
+        Resultado: 'SearchCreateWebUser'
+
+    -CommandsHandlers:
+        Deve empezar por el nombre de la accion a realizar, seguido de el nombre de la tabla de la base de datos más la palabra Handler
+        Ej: 'Create' + 'WebUser' + 'Handler', donde 'Create' es el nombre de la acción a realizar, 'WebUser' es el nombre de la tabla de la base de datos, más 'Handler'
+        Resultado: 'CreateWebUserHandler'
+
+    -EventsHandlers:
+        Deve empezar por el nombre de la tabla de la base de datos, seguido de la accion que se ha realizado, más la palabra 'Handler'
+        Ej: 'WebUser' + 'Created' + 'Handler', donde 'WebUser' es el nombre de la tabla en la base de datos, 'Created' es el nombre de la acción realizada, más 'Handler'
+        Resultado: 'WebUserCreatedHandler'
+
+Implementaciones y desarrollo de codigo:
+    -Commands:
+
+    -Events:
+
+    -Searchers:
+
+    -CommandsHandlers:
+
+    -EventsHandlers:

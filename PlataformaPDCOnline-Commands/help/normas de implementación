@@ -1,0 +1,46 @@
+
+--Implementación de nuevos Commands--
+
+Al implementar un command deves tener en cuenta los siguientes criterios:
+En la base de datos 'dwpdc' / 'dwpdc20', en la tabla 'webcommands', añadir una linea para el command que añadas,
+	la linea deve añadir los mismos parametros que la clase 'WebCommandsController':
+		->tablename : nombre de la tabla donde estan almacenados los datos que se utilizaran para inflar el command.
+		->commandname: nombre del command, importante, pueste que este se utilizara para localizar las clases que trabajan con este command
+		->uidtablename: nombre de la clave primaria de la tabla, el campo que contiene el UID
+		->sqlcommand: sentencia SQL que se utilizara para extraer datos, los quales posteriormente pasaran por un proceso de verificación,
+			en función de ese proceso creara el command o no.
+		->parametros: un string con todos los parametros separados por coma, el nombre de cada parametro deve coincidir con el de las clases.
+
+Una vez implementada la parte de base de datos:
+	Implementación del codigo:
+		Valla a 'PlataformaPDCOnline.Editable.Searchers', aqui cree una nueva clase, la qual contendra todos el "buscador de cambios" para ese command
+			Implementacion de las clases Searchers:
+				->Por Obligacion, la clase deve llamar-se 'Search' + nombre del command.
+				->Deve implementar la Interface 'ISearcher', la qual se encuentra en 'PlataformaPDCOnline.Internals.Plataforma.ISearcher'.
+				->Deve implementar el methodo 'RunSearcher', el qual ja le obligara a implementar la Interface.
+					->Este metodo sera "el Main" de la busqueda de cambios, recivira como parametro: 
+						->un diccionario en el que se encontrara el resultado de la sentencia SQL escrita en la tabla 'webcommands'.
+						->el 'WebCommandController', esta clase contiene los datos de la tabla 'webcommands' los quales varian segun el command
+					->Dentro de esta clase puede crear otros metodos que utilize el metodo 'RunSearcher'
+		Valla a 'PlataformaPDCOnline.Editable.pdcOnline.Commands', aquí cree y implemente los commands que se especifican en la base de datos.
+			Implementación de las clases Commands:
+				->por obligacion la clase que hadra de command deve:
+					->llamar-se con el mismo nombre del command en la base de datos.
+					->implementar la clase 'Command' localizada en 'Pdc.Messaging'
+					->deve tener los mismos atrivutos que los parametros del command en la base de datos, el UID es heredado, asi que no es necesario que lo implemente
+
+Se deve respetar el espacio de nombres, así como la nomenclatura de las clases de forma estricta.
+
+--Recomendaciones--
+Añada los commands de una misma tabla de la base de datos dentro del mismo fixero y nombre-lo "NombreDelCommand" + 'Commands'
+Añada todas las clases Search dentro de un fixero y nombre-lo 'SearchChanges' + "NombreDelCommand"
+
+Para la insercion de UID's a la base de datos puedes utilizar una consulta ya preparada y automatizada, llamando a:
+	'ConsultasPreparadas.Singelton().UpdateTableForGUID(WebCommandController controller, Dictionary<string, object> row, string uid, string campoId)'
+	donde:
+	controller: és el controllador del command que se esta ejecutando en este momento.
+	row: es la fila extraida de la base de datos.
+	uid: és el UID generado por la aplicacion
+	campoId: és el campo id en la base de datos que usamos para referirnos a el en nuestra base de datos, de tal forma que en la row se buscara este dato para poder localizar la 
+		fila en la base de datos.
+
