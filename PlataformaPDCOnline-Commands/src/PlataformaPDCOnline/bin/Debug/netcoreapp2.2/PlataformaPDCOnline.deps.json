@@ -1,15 +1,15 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "3338f4cba1a41bb20622ad1836f2a9d986f95a23"
+    "signature": "7fc08382706264f185ea1e361561ca400c268bd7"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
       "PlataformaPDCOnline/1.0.0": {
         "dependencies": {
+          "Microsoft.ApplicationInsights": "2.9.1",
           "Microsoft.ApplicationInsights.DependencyCollector": "2.9.1",
-          "Microsoft.ApplicationInsights.WindowsServer": "2.9.1",
           "Microsoft.Extensions.Configuration": "3.0.0-preview.19074.2",
           "Microsoft.Extensions.Configuration.Abstractions": "3.0.0-preview.19074.2",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.0.0-preview.19074.2",
@@ -73,59 +73,6 @@
           }
         }
       },
-      "Microsoft.ApplicationInsights.PerfCounterCollector/2.9.1": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "2.9.1",
-          "Microsoft.Extensions.Caching.Memory": "2.2.0",
-          "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
-          "System.Runtime.Serialization.Json": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0",
-          "System.Threading.Thread": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.6/Microsoft.AI.PerfCounterCollector.dll": {
-            "assemblyVersion": "2.9.1.0",
-            "fileVersion": "2.9.1.26132"
-          }
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsServer/2.9.1": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "2.9.1",
-          "Microsoft.ApplicationInsights.DependencyCollector": "2.9.1",
-          "Microsoft.ApplicationInsights.PerfCounterCollector": "2.9.1",
-          "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel": "2.9.1",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
-          "System.Runtime.Serialization.Json": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.6/Microsoft.AI.WindowsServer.dll": {
-            "assemblyVersion": "2.9.1.0",
-            "fileVersion": "2.9.1.26132"
-          }
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/2.9.1": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "2.9.1",
-          "System.Diagnostics.Process": "4.3.0",
-          "System.IO.FileSystem.AccessControl": "4.3.0",
-          "System.Net.NetworkInformation": "4.3.0",
-          "System.Net.Requests": "4.3.0",
-          "System.Net.WebHeaderCollection": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Threading.Thread": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AI.ServerTelemetryChannel.dll": {
-            "assemblyVersion": "2.9.1.0",
-            "fileVersion": "2.9.1.26108"
-          }
-        }
-      },
       "Microsoft.Azure.Amqp/2.3.7": {
         "dependencies": {
           "System.Net.WebSockets.Client": "4.0.2",
@@ -149,7 +96,7 @@
           "System.Linq.Queryable": "4.0.1",
           "System.Net.Http": "4.3.4",
           "System.Net.NameResolution": "4.3.0",
-          "System.Net.NetworkInformation": "4.3.0",
+          "System.Net.NetworkInformation": "4.1.0",
           "System.Net.Requests": "4.3.0",
           "System.Net.Security": "4.3.2",
           "System.Net.WebHeaderCollection": "4.3.0",
@@ -1368,28 +1315,6 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.IO.FileSystem.AccessControl/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.0.0-preview.19073.11",
-          "System.IO.FileSystem": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Security.AccessControl": "4.3.0",
-          "System.Security.Principal.Windows": "4.3.0"
-        },
-        "runtimeTargets": {
-          "runtime/unix/lib/_._": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        }
-      },
       "System.IO.FileSystem.Primitives/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1539,7 +1464,7 @@
           }
         }
       },
-      "System.Net.NetworkInformation/4.3.0": {
+      "System.Net.NetworkInformation/4.1.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.0.0-preview.19073.11",
           "Microsoft.Win32.Primitives": "4.3.0",
@@ -1931,31 +1856,6 @@
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Text.Encoding": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
-        }
-      },
-      "System.Security.AccessControl/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.0.0-preview.19073.11",
-          "System.Collections": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Security.Principal.Windows": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Thread": "4.3.0"
-        },
-        "runtimeTargets": {
-          "runtime/unix/lib/_._": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
         }
       },
       "System.Security.Claims/4.3.0": {
@@ -2409,27 +2309,6 @@
       "sha512": "sha512-86Tr5KqRfBFEzmMoh9BKPdTGsIT5fQV8OoGFwvSU+9L9dk22tvRrvTbqXiGyTf6C0SXUX3bV90+7Dp9W5P/MQA==",
       "path": "microsoft.applicationinsights.dependencycollector/2.9.1",
       "hashPath": "microsoft.applicationinsights.dependencycollector.2.9.1.nupkg.sha512"
-    },
-    "Microsoft.ApplicationInsights.PerfCounterCollector/2.9.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4YsaKVRlnzgq7Cw9LH9nZKtYnem5VD5NpO225AAk9u1v2PlD5Pzu5LhJ7PwcdJ212+1ZKBf72Z6gyHGz1bJbIg==",
-      "path": "microsoft.applicationinsights.perfcountercollector/2.9.1",
-      "hashPath": "microsoft.applicationinsights.perfcountercollector.2.9.1.nupkg.sha512"
-    },
-    "Microsoft.ApplicationInsights.WindowsServer/2.9.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-YRq9BF985oKz5OtQI4wntSY/nvm9B5uXcLDNJQCLLcpdLyciQZAdKvegy3yf+LI8mu/7cYc1NrphQaDg9NLasw==",
-      "path": "microsoft.applicationinsights.windowsserver/2.9.1",
-      "hashPath": "microsoft.applicationinsights.windowsserver.2.9.1.nupkg.sha512"
-    },
-    "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/2.9.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-XzQmQY8+i6842v9jINqILqWELMAfzyj4nt4Hyoh83KK9tX8VBpha59rp0+uP2CzLQDwXxxELvKXtaey+RyzZzQ==",
-      "path": "microsoft.applicationinsights.windowsserver.telemetrychannel/2.9.1",
-      "hashPath": "microsoft.applicationinsights.windowsserver.telemetrychannel.2.9.1.nupkg.sha512"
     },
     "Microsoft.Azure.Amqp/2.3.7": {
       "type": "package",
@@ -3138,13 +3017,6 @@
       "path": "system.io.filesystem/4.3.0",
       "hashPath": "system.io.filesystem.4.3.0.nupkg.sha512"
     },
-    "System.IO.FileSystem.AccessControl/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-crjUsNiUm4n6uwPC4K6ya43tu6+pDo8CPQRj/mkVzsAYKLeP26PhhkJuUFSP0TYW1wEe8ZajPi7Mw+WPm3AmfQ==",
-      "path": "system.io.filesystem.accesscontrol/4.3.0",
-      "hashPath": "system.io.filesystem.accesscontrol.4.3.0.nupkg.sha512"
-    },
     "System.IO.FileSystem.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3201,12 +3073,12 @@
       "path": "system.net.nameresolution/4.3.0",
       "hashPath": "system.net.nameresolution.4.3.0.nupkg.sha512"
     },
-    "System.Net.NetworkInformation/4.3.0": {
+    "System.Net.NetworkInformation/4.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zNVmWVry0pAu7lcrRBhwwU96WUdbsrGL3azyzsbXmVNptae1+Za+UgOe9Z6s8iaWhPn7/l4wQqhC56HZWq7tkg==",
-      "path": "system.net.networkinformation/4.3.0",
-      "hashPath": "system.net.networkinformation.4.3.0.nupkg.sha512"
+      "sha512": "sha512-Q0rfeiW6QsiZuicGjrFA7cRr2+kXex0JIljTTxzI09GIftB8k+aNL31VsQD1sI2g31cw7UGDTgozA/FgeNSzsQ==",
+      "path": "system.net.networkinformation/4.1.0",
+      "hashPath": "system.net.networkinformation.4.1.0.nupkg.sha512"
     },
     "System.Net.Primitives/4.3.0": {
       "type": "package",
@@ -3417,13 +3289,6 @@
       "sha512": "sha512-nUQx/5OVgrqEba3+j7OdiofvVq9koWZAC7Z3xGI8IIViZqApWnZ5+lLcwYgTlbkobrl/Rat+Jb8GeD4WQESD2A==",
       "path": "system.runtime.serialization.xml/4.3.0",
       "hashPath": "system.runtime.serialization.xml.4.3.0.nupkg.sha512"
-    },
-    "System.Security.AccessControl/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-AqO2yLFGvtaTREHXTma3XR8RVlj/+nOMA2zlcWd+TGD13eCbl+JbfzCQU4chy7gLRLGJvJHNQAOk1TJc7E7JEQ==",
-      "path": "system.security.accesscontrol/4.3.0",
-      "hashPath": "system.security.accesscontrol.4.3.0.nupkg.sha512"
     },
     "System.Security.Claims/4.3.0": {
       "type": "package",

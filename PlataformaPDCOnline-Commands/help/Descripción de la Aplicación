@@ -1,0 +1,40 @@
+Ultima modificación: 27/03/2019
+
+Program: PlataformaPDCOnline-Commands
+
+--Descripción--
+aplicacion que se encarga de enviar commands al Service Bus de Azure, la generación del command se define segun la comparación de los datos de dos base de datos, una con Informix, la ortra con ...
+
+--Dependencias--
+Nuggets:
+
+	- Project OdbcDatabase: (Accesso a Base de Datos Informix)
+		System.Data.Odbc por Microsoft, version 4.6.0-preview.19073.11.
+
+	- Projecto PlataformaPDCOnline: (La aplicación en si)
+		Microsoft.ApplicationInsights por Microsoft, version 2.9.1.
+		Microsoft.Extensions.Configuration por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.Extensions.Configuration.Abstractions por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.Extensions.Configuration.EnvironmentVariables por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.Extensions.Configuration.UserSecrets por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.Extensions.Logging.Console por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.Extensions.Logging.Debug por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.Extensions.Options.ConfigurationExtensions por Microsoft, version 3.0.0-preview.19074.2.
+		Microsoft.NETCore.App por Microsoft, version 2.2.0.
+		Pdc.Denormalization por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.DistributedLocks.Abstractions por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.DistributedLocks.Redis por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Domain por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Hosting por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Messaging por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Messaging.Abstractions por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Messaging.ServiceBus por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Persistence.Abstractions por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.Persistence.DocumentDB por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.UnitOfWork por Marc Maranon, version 1.0.0-beta.9.
+		Pdc.UnitOfWork.Abstractions por Marc Maranon, version 1.0.0-beta.9.
+
+Referencias:
+		Referencia a OdbcDatabase.
+		
+

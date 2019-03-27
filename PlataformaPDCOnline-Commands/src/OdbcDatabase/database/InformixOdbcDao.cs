@@ -17,8 +17,7 @@ namespace OdbcDatabase.database
             }
             catch(Exception e)
             {
-                ErrorDBLog.Write(e.Message);
-                Database = null;
+                Database = null; //generar excepcion
             }
         }
 

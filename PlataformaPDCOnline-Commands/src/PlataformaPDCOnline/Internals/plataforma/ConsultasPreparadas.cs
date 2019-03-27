@@ -57,7 +57,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
             catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                ErrorDBLog.Write(e.Message);
+                Sender.Singelton().TrackException(e);
             }
             return result;
         }
@@ -74,10 +74,10 @@ namespace PlataformaPDCOnline.Internals.plataforma
                 result = Infx.ExecuteSelectCommand(commandOdbc);
                 Infx.Database.Connection.Close();
             }
-            catch (Exception e)
+            catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                ErrorDBLog.Write(e.Message);
+                Sender.Singelton().TrackException(e);
             }
             return result;
         }
@@ -122,7 +122,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
             catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                ErrorDBLog.Write(e.Message);
+                Sender.Singelton().TrackException(e);
             }
 
             return updateadas;

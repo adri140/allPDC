@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.Extensions.DependencyInjection;
-using PlataformaPDCOnline.Internals.applicationInsights;
 using PlataformaPDCOnline.Internals.excepciones;
 using PlataformaPDCOnline.Internals.pdcOnline.Sender;
 using PlataformaPDCOnline.Internals.plataforma;
@@ -15,50 +11,35 @@ namespace PlataformaPDCOnline
     class Program
     {
         //public static Boolean end = false;
-        public static int TotalCommandsEnviados = 0;
+        private static int TotalCommandsEnviados = 0;
 
         public static void Main(string[] args)
         {
-            /*TelemetryClient client = new TelemetryClient() { InstrumentationKey = "" };
+            Sender.Singelton(); //iniciamos el sender.
 
-            var services = new ServiceCollection();
+             StartFunction();
 
-            services.AddSingleton(x => client);
+             try
+             {
+                 WebCommandsController.EndSender();
+             }
+             catch(NullReferenceException ne)
+             {
+                 Sender.Singelton().TrackException(ne);
+                 Console.WriteLine(ne.Message);
+             }
+             catch(Exception e)
+             {
+                 Sender.Singelton().TrackException(e);
+                 Console.WriteLine(e.Message);
+             }
 
-            var proveider = services.BuildServiceProvider();*/
+             Console.WriteLine("Total commands enviados: " + TotalCommandsEnviados);
 
-            Sender.Singelton();
-            
+             Sender.Singelton().TrackMetric("TotalCommandsSend", TotalCommandsEnviados); //añadimos una metrica, la qual indica el total de commands enviados.
+             Sender.Singelton().Flush(); //hacemos que se vacie el buffer
 
-            StartFunction();
-
-            try
-            {
-                WebCommandsController.EndSender();
-            }
-            catch(NullReferenceException ne)
-            {
-                Sender.Singelton().TrackException(ne);
-                Console.WriteLine(ne.Message);
-            }
-            catch(Exception e)
-            {
-                Sender.Singelton().TrackException(e);
-                Console.WriteLine(e.Message);
-            }
-
-            Console.WriteLine("Total commands enviados: " + TotalCommandsEnviados);
-
-            var metrica = new MetricTelemetry()
-            {
-                Name = "Total commands Send",
-                Sum = TotalCommandsEnviados
-            };
-
-            Sender.Singelton().TrackMetric(metrica);
-            Sender.Singelton().Flush();
-
-            Task.Delay(10000).Wait(); //espera 10 segundos, por si acaso
+             Task.Delay(10000).Wait(); //espera 10 segundos, por si acaso
         }
 
         //inicia el programa, cargando todos los commands que hay en la base de datos informix
@@ -80,8 +61,7 @@ namespace PlataformaPDCOnline
                 try
                 {
                     WebCommandsController controller = new WebCommandsController(row); //generamos un webController a partir de la informacion de este controller
-                    //Console.WriteLine("Prepare Detector: preparando trabajo para: " + controller.CommandName);
-                    TotalCommandsEnviados += controller.RunDetector(); //lanzamos el controller
+                    TotalCommandsEnviados += controller.RunDetector(); //lanzamos el controller y recivimos el numero de commands enviados
                 }
                 catch (MyNoImplementedException ni)
                 {

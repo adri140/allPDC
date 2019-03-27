@@ -1,5 +1,4 @@
 ﻿using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +17,6 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
     //contiene todos los datos para poder crear el sender, usamos singelton para que solo se pueda instanciar una vez
     public class Sender
     {
-
         private static Sender CommandsSender;
 
         public static Sender Singelton()
@@ -53,16 +51,18 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
             }
         }
 
-        public async Task SendCommand(Command command)
+        public Boolean SendCommand(Command command)
         {
             if (command != null)
             {
                 using (services.GetRequiredService<IServiceScope>())
                 {
-                    await sender.SendAsync(command);
-                    //Console.WriteLine("enviando command");
+                    Task t = sender.SendAsync(command);
+                    t.Wait();
+                    return true;
                 }
             }
+            return false;
         }
 
         public async Task EndJobAsync()
@@ -103,7 +103,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
         {
             var services = new ServiceCollection();
 
-            services.AddLogging(builder => builder.AddDebug()); 
+            services.AddLogging(builder => builder.AddDebug());
             
             services.AddAzureServiceBusCommandSender(options => configuration.GetSection("ProcessManager:Sender").Bind(options));
             
@@ -122,7 +122,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
 
             var config = new TelemetryConfiguration()
             {
-                InstrumentationKey = "----"
+                InstrumentationKey = "----" //añadimos aqui la instrumentation key 
             };
 
             config.TelemetryChannel = new Microsoft.ApplicationInsights.Channel.InMemoryChannel
@@ -158,9 +158,10 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
             services.GetRequiredService<TelemetryClient>().TrackTrace(trace);
         }
 
-        public void TrackMetric(MetricTelemetry metric)
+        public void TrackMetric(String metricaName, int value)
         {
-            services.GetRequiredService<TelemetryClient>().TrackMetric(metric);
+            //services.GetRequiredService<TelemetryClient>().TrackMetric(metric); //deprecated
+            services.GetRequiredService<TelemetryClient>().GetMetric(metricaName).TrackValue(value);
         }
 
         public void Flush()

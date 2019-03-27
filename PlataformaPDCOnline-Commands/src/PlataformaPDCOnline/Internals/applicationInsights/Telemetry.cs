@@ -2,10 +2,8 @@
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using System.Text;
 
 namespace PlataformaPDCOnline.Internals.applicationInsights
 {
@@ -19,7 +17,7 @@ namespace PlataformaPDCOnline.Internals.applicationInsights
             return ApplicationTelemetry;
         }
 
-        private string TelemetryKey = "73f7df52-97da-45b8-9e5f-f4b3cd1aee28";
+        private static readonly string TelemetryKey = "----";
 
         private TelemetryClient client;
 
@@ -31,11 +29,14 @@ namespace PlataformaPDCOnline.Internals.applicationInsights
         private TelemetryClient GetAppTelemetryClient()
         {
             TelemetryConfiguration.Active.DisableTelemetry = false;
-            var config = new TelemetryConfiguration();
-
-            config.InstrumentationKey = TelemetryKey;
-            config.TelemetryChannel = new Microsoft.ApplicationInsights.Channel.InMemoryChannel();
-            config.TelemetryChannel.DeveloperMode = Debugger.IsAttached;
+            var config = new TelemetryConfiguration
+            {
+                InstrumentationKey = TelemetryKey,
+                TelemetryChannel = new Microsoft.ApplicationInsights.Channel.InMemoryChannel
+                {
+                    DeveloperMode = Debugger.IsAttached
+                }
+            };
 
 #if DEBUG
             config.TelemetryChannel.DeveloperMode = true;
@@ -67,7 +68,8 @@ namespace PlataformaPDCOnline.Internals.applicationInsights
 
         public void TrackMetric(MetricTelemetry metrica)
         {
-            client.TrackMetric(metrica);
+            //client.TrackMetric(metrica);
+            client.GetMetric(metrica.Name).TrackValue(metrica.Sum);
         }
     }
 }

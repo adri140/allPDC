@@ -758,11 +758,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adrianrecio\\source\\repos\\allPlataformaPDCOnline\\PlataformaPDCOnline-Commands\\src\\OdbcDatabase\\OdbcDatabase.csproj",
+      "projectUniqueName": "C:\\Users\\adrianrecio\\source\\repos\\allPdc\\PlataformaPDCOnline-Commands\\src\\OdbcDatabase\\OdbcDatabase.csproj",
       "projectName": "OdbcDatabase",
-      "projectPath": "C:\\Users\\adrianrecio\\source\\repos\\allPlataformaPDCOnline\\PlataformaPDCOnline-Commands\\src\\OdbcDatabase\\OdbcDatabase.csproj",
+      "projectPath": "C:\\Users\\adrianrecio\\source\\repos\\allPdc\\PlataformaPDCOnline-Commands\\src\\OdbcDatabase\\OdbcDatabase.csproj",
       "packagesPath": "C:\\Users\\adrianrecio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adrianrecio\\source\\repos\\allPlataformaPDCOnline\\PlataformaPDCOnline-Commands\\src\\OdbcDatabase\\obj\\",
+      "outputPath": "C:\\Users\\adrianrecio\\source\\repos\\allPdc\\PlataformaPDCOnline-Commands\\src\\OdbcDatabase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

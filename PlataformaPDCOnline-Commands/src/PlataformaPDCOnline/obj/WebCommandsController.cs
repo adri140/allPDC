@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace PlataformaPDCOnline.Internals.plataforma
 {
@@ -38,7 +39,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
             {
                 await Sender.Singelton().EndJobAsync();
             }
-            catch (NullReferenceException ne)
+            catch(NullReferenceException ne)
             {
                 throw new Exception(ne.ToString());
             }
@@ -74,9 +75,10 @@ namespace PlataformaPDCOnline.Internals.plataforma
 
                     foreach (Dictionary<string, object> row in table)
                     {
-                        Command commandSend = (Command)method.Invoke(search, new object[] { row, this }); //invocamos el methodo con la instancia searcher y le pasamos los parametros
-                        if (Sender.Singelton().SendCommand(commandSend)) CommandsSended++;
-                        else throw new NoCompletCommandSend("No se a podido enviar el command.");
+                        Command commandSend = (Command) method.Invoke(search, new object[] { row, this }); //invocamos el methodo con la instancia searcher y le pasamos los parametros
+
+                        /*if (Sender.Singelton().SendCommand(commandSend)) CommandsSended++;
+                        else throw new NoCompletCommandSend("No se a podido enviar el command.");*/
                     }
                 }
                 else throw new MyNoImplementedException("Se ha encontrado la clase " + searcherT.Name + ", pero no implementa ISearcher."); //ok
