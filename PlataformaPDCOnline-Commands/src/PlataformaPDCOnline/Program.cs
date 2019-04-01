@@ -25,19 +25,18 @@ namespace PlataformaPDCOnline
              }
              catch(NullReferenceException ne)
              {
-                 Sender.Singelton().TrackException(ne);
+                 //Sender.Singelton().TrackException(ne);
                  Console.WriteLine(ne.Message);
              }
              catch(Exception e)
              {
-                 Sender.Singelton().TrackException(e);
+                 //Sender.Singelton().TrackException(e);
                  Console.WriteLine(e.Message);
              }
 
              Console.WriteLine("Total commands enviados: " + TotalCommandsEnviados);
 
-             Sender.Singelton().TrackMetric("TotalCommandsSend", TotalCommandsEnviados); //añadimos una metrica, la qual indica el total de commands enviados.
-             Sender.Singelton().Flush(); //hacemos que se vacie el buffer
+             
 
              Task.Delay(10000).Wait(); //espera 10 segundos, por si acaso
         }
@@ -65,17 +64,17 @@ namespace PlataformaPDCOnline
                 }
                 catch (MyNoImplementedException ni)
                 {
-                    Sender.Singelton().TrackException(ni);
+                    //Sender.Singelton().TrackException(ni);
                     Console.WriteLine(ni.Message);
                 }
                 catch(NoCompletCommandSend cs)
                 {
-                    Sender.Singelton().TrackException(cs);
+                   // Sender.Singelton().TrackException(cs);
                     Console.WriteLine(cs.Message);
                 }
                 catch(Exception e)
                 {
-                    Sender.Singelton().TrackException(e); //le paso la excepcion, puesto que no se donde a petado
+                    //Sender.Singelton().TrackException(e); //le paso la excepcion, puesto que no se donde a petado
                     Console.WriteLine(e.Message);
                 }
             }

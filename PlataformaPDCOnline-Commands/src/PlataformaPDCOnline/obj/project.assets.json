@@ -357,6 +357,19 @@
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.ApplicationInsights/2.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ApplicationInsights": "2.9.1",
+          "Microsoft.Extensions.Logging": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.ApplicationInsights.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.ApplicationInsights.dll": {}
+        }
+      },
       "Microsoft.Extensions.Logging.Configuration/3.0.0-preview.19074.2": {
         "type": "package",
         "dependencies": {
@@ -3233,6 +3246,20 @@
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "microsoft.extensions.logging.abstractions.3.0.0-preview.19074.2.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.ApplicationInsights/2.9.1": {
+      "sha512": "MJtrD5RzDbYwNKNLfGDBu1TQh5DqiL+/8cvdBovD0s6FtLz5doeHwhIyK8Kh24CCO3kTQOPQ85hRMnFPBJ9UGw==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.applicationinsights/2.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.ApplicationInsights.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.ApplicationInsights.pdb",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.ApplicationInsights.xml",
+        "microsoft.extensions.logging.applicationinsights.2.9.1.nupkg.sha512",
+        "microsoft.extensions.logging.applicationinsights.nuspec"
       ]
     },
     "Microsoft.Extensions.Logging.Configuration/3.0.0-preview.19074.2": {
@@ -8798,6 +8825,7 @@
       "Microsoft.Extensions.Configuration.Abstractions >= 3.0.0-preview.19074.2",
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 3.0.0-preview.19074.2",
       "Microsoft.Extensions.Configuration.UserSecrets >= 3.0.0-preview.19074.2",
+      "Microsoft.Extensions.Logging.ApplicationInsights >= 2.9.1",
       "Microsoft.Extensions.Logging.Console >= 3.0.0-preview.19074.2",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0-preview.19074.2",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 3.0.0-preview.19074.2",
@@ -8882,6 +8910,10 @@
           "Microsoft.Extensions.Configuration.UserSecrets": {
             "target": "Package",
             "version": "[3.0.0-preview.19074.2, )"
+          },
+          "Microsoft.Extensions.Logging.ApplicationInsights": {
+            "target": "Package",
+            "version": "[2.9.1, )"
           },
           "Microsoft.Extensions.Logging.Console": {
             "target": "Package",

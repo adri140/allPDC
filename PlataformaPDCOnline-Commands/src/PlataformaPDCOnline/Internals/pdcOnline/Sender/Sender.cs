@@ -1,14 +1,14 @@
-﻿using Microsoft.ApplicationInsights;
+﻿using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 using Pdc.Hosting;
 using Pdc.Messaging;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -35,6 +35,10 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
             configuration = GetConfiguration();
 
             services = GetBoundedContextServices();
+
+            //services.GetRequiredService<ILogger<Sender>>().LogInformation("hey, el logger esta trabajando, Un saludo");
+            //esto supuestamente funciona
+            //https://docs.microsoft.com/bs-latn-ba/azure////azure-monitor/app/ilogger 
 
             InicializeAsync();
         }
@@ -103,70 +107,29 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
         {
             var services = new ServiceCollection();
 
-            services.AddLogging(builder => builder.AddDebug());
+
+            var channel = new InMemoryChannel();
+            services.Configure<TelemetryConfiguration>(
+                (config) =>
+                {
+                    config.TelemetryChannel = channel;
+                }    
+            );
+
+            services.AddLogging(logginBuilder =>
+            {
+                logginBuilder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
+                logginBuilder.AddApplicationInsights("--Instrumentation-Key--");
+            });
+            //services.AddLogging(builder => builder.AddDebug());
             
             services.AddAzureServiceBusCommandSender(options => configuration.GetSection("ProcessManager:Sender").Bind(options));
             
             services.AddHostedService<HostedService>();
 
             services.AddSingleton(scope => services.BuildServiceProvider().CreateScope());
-            
-            services.AddSingleton(appIns => GetAppTelemetryClient());
 
             return services.BuildServiceProvider();
-        }
-
-        private TelemetryClient GetAppTelemetryClient()
-        {
-            TelemetryConfiguration.Active.DisableTelemetry = false;
-
-            var config = new TelemetryConfiguration()
-            {
-                InstrumentationKey = "----" //añadimos aqui la instrumentation key 
-            };
-
-            config.TelemetryChannel = new Microsoft.ApplicationInsights.Channel.InMemoryChannel
-            {
-                DeveloperMode = Debugger.IsAttached
-            };
-
-#if DEBUG
-            config.TelemetryChannel.DeveloperMode = true;
-#endif
-
-            TelemetryClient client = new TelemetryClient(config);
-            client.Context.Component.Version = Assembly.GetEntryAssembly().GetName().Version.ToString();
-            //client.Context.User.Id = Guid.NewGuid().ToString();
-            client.Context.User.Id = (Environment.UserName + Environment.MachineName).GetHashCode().ToString();
-            client.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
-
-            return client;
-        }
-
-        public void TrackException(Exception e)
-        {
-            services.GetRequiredService<TelemetryClient>().TrackException(e);
-        }
-
-        public void TrackEvent(string evente)
-        {
-            services.GetRequiredService<TelemetryClient>().TrackEvent(evente);
-        }
-
-        public void TrackTrace(string trace)
-        {
-            services.GetRequiredService<TelemetryClient>().TrackTrace(trace);
-        }
-
-        public void TrackMetric(String metricaName, int value)
-        {
-            //services.GetRequiredService<TelemetryClient>().TrackMetric(metric); //deprecated
-            services.GetRequiredService<TelemetryClient>().GetMetric(metricaName).TrackValue(value);
-        }
-
-        public void Flush()
-        {
-            services.GetRequiredService<TelemetryClient>().Flush();
         }
     }
 }
