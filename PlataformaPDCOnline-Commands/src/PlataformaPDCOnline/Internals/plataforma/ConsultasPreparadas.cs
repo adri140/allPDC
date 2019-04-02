@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using OdbcDatabase;
 using OdbcDatabase.database;
 using OdbcDatabase.excepciones;
@@ -57,7 +59,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
             catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                //Sender.Singelton().TrackException(e);
+                Sender.Singelton().GetServices().GetRequiredService<ILogger<ConsultasPreparadas>>().LogError(e.Message);
             }
             return result;
         }
@@ -77,7 +79,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
             catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                //Sender.Singelton().TrackException(e);
+                Sender.Singelton().GetServices().GetRequiredService<ILogger<ConsultasPreparadas>>().LogError(e.Message);
             }
             return result;
         }
@@ -122,7 +124,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
             catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                //Sender.Singelton().TrackException(e);
+                Sender.Singelton().GetServices().GetRequiredService<ILogger<ConsultasPreparadas>>().LogError(e.Message);
             }
 
             return updateadas;

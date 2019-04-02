@@ -26,7 +26,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
         }
 
         private readonly IConfiguration configuration;
-        private readonly IServiceProvider services;
+        private readonly IServiceProvider Services;
         private IHostedService boundedContext;
         private ICommandSender sender;
 
@@ -34,7 +34,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
         {
             configuration = GetConfiguration();
 
-            services = GetBoundedContextServices();
+            Services = GetBoundedContextServices();
 
             //services.GetRequiredService<ILogger<Sender>>().LogInformation("hey, el logger esta trabajando, Un saludo");
             //esto supuestamente funciona
@@ -43,15 +43,20 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
             InicializeAsync();
         }
 
+        public IServiceProvider GetServices()
+        {
+            return Services;
+        }
+
         private async void InicializeAsync()
         {
-            using (services.GetRequiredService<IServiceScope>())
+            using (Services.GetRequiredService<IServiceScope>())
             {
-                boundedContext = services.GetRequiredService<IHostedService>();
+                boundedContext = Services.GetRequiredService<IHostedService>();
 
                 await boundedContext.StartAsync(default); //iniciamos todos los servicios
 
-                sender = services.GetRequiredService<ICommandSender>();
+                sender = Services.GetRequiredService<ICommandSender>();
             }
         }
 
@@ -59,7 +64,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
         {
             if (command != null)
             {
-                using (services.GetRequiredService<IServiceScope>())
+                using (Services.GetRequiredService<IServiceScope>())
                 {
                     Task t = sender.SendAsync(command);
                     t.Wait();
@@ -71,7 +76,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
 
         public async Task EndJobAsync()
         {
-            using (services.GetRequiredService<IServiceScope>())
+            using (Services.GetRequiredService<IServiceScope>())
             {
                 if (boundedContext != null)
                 {

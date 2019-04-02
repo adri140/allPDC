@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PlataformaPDCOnline.Internals.excepciones;
 using PlataformaPDCOnline.Internals.pdcOnline.Sender;
 using PlataformaPDCOnline.Internals.plataforma;
@@ -17,28 +19,28 @@ namespace PlataformaPDCOnline
         {
             Sender.Singelton(); //iniciamos el sender.
 
-             StartFunction();
+            StartFunction();
 
-             try
-             {
-                 WebCommandsController.EndSender();
-             }
-             catch(NullReferenceException ne)
-             {
-                 //Sender.Singelton().TrackException(ne);
-                 Console.WriteLine(ne.Message);
-             }
-             catch(Exception e)
-             {
-                 //Sender.Singelton().TrackException(e);
-                 Console.WriteLine(e.Message);
-             }
+            try
+            {
+                WebCommandsController.EndSender();
+            }
+            catch(NullReferenceException ne)
+            {
+                //Sender.Singelton().TrackException(ne);
+                Console.WriteLine(ne.Message);
+            }
+            catch(Exception e)
+            {
+                //Sender.Singelton().TrackException(e);
+                Console.WriteLine(e.Message);
+            }
 
-             Console.WriteLine("Total commands enviados: " + TotalCommandsEnviados);
+            Console.WriteLine("Total commands enviados: " + TotalCommandsEnviados);
+            Sender.Singelton().GetServices().GetRequiredService<ILogger<Program>>().LogInformation("Total commands enviados: " + TotalCommandsEnviados);
 
-             
 
-             Task.Delay(10000).Wait(); //espera 10 segundos, por si acaso
+            Task.Delay(10000).Wait(); //espera 10 segundos, por si acaso
         }
 
         //inicia el programa, cargando todos los commands que hay en la base de datos informix
@@ -64,17 +66,17 @@ namespace PlataformaPDCOnline
                 }
                 catch (MyNoImplementedException ni)
                 {
-                    //Sender.Singelton().TrackException(ni);
+                    Sender.Singelton().GetServices().GetRequiredService<ILogger<Program>>().LogError(ni.Message);
                     Console.WriteLine(ni.Message);
                 }
                 catch(NoCompletCommandSend cs)
                 {
-                   // Sender.Singelton().TrackException(cs);
+                    Sender.Singelton().GetServices().GetRequiredService<ILogger<Program>>().LogError(cs.Message);
                     Console.WriteLine(cs.Message);
                 }
                 catch(Exception e)
                 {
-                    //Sender.Singelton().TrackException(e); //le paso la excepcion, puesto que no se donde a petado
+                    Sender.Singelton().GetServices().GetRequiredService<ILogger<Program>>().LogError(e.Message);
                     Console.WriteLine(e.Message);
                 }
             }
