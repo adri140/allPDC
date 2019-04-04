@@ -1,8 +1,11 @@
-﻿using OdbcDatabase;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using OdbcDatabase;
 using OdbcDatabase.database;
 using OdbcDatabase.excepciones;
 using Pdc.Messaging;
 using PlataformaPDCOnline.internals.exceptions;
+using PlataformaPDCOnline.internals.pdcOnline;
 using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Threading.Tasks;
@@ -54,7 +57,7 @@ namespace PlataformaPDCOnline.internals.plataforma
             catch (MyOdbcException e)
             {
                 if (Infx.Database.Connection.State == System.Data.ConnectionState.Open) Infx.Database.Connection.Close();
-                ErrorDBLog.Write(e.Message);
+                Receiver.Singelton().GetServices().GetRequiredService<ILogger<ConsultasPreparadas>>().LogError(e.Message);
             }
             return result;
         }
@@ -110,8 +113,8 @@ namespace PlataformaPDCOnline.internals.plataforma
                     {
                         Dictionary<string, object> dataU = new Dictionary<string, object>()
                         {
-                            { "eventcommit", ((int) (result.ToArray()[0].GetValueOrDefault("eventcommit")) + 1) },
-                            { "changevalue", ((int) (result.ToArray()[0].GetValueOrDefault("changevalue")) - 1) },
+                            { "eventcommit", ((int) (result.ToArray()[0]["eventcommit"]) + 1) },
+                            { "changevalue", ((int) (result.ToArray()[0]["changevalue"]) - 1) },
                             { controller.UidName, eventReceived.AggregateId }
                         };
 
@@ -126,12 +129,13 @@ namespace PlataformaPDCOnline.internals.plataforma
                     else
                     {
                         transaction.Rollback();
+                        Receiver.Singelton().GetServices().GetRequiredService<ILogger<ConsultasPreparadas>>().LogError("Algo causo que se avortara la resta de changeValue para el registro con uid: " + eventReceived.AggregateId);
                     }
                 }
                 catch (MyOdbcException e)
                 {
                     if (transaction != null) transaction.Rollback();
-                    ErrorDBLog.Write(e.Message);
+                    Receiver.Singelton().GetServices().GetRequiredService<ILogger<ConsultasPreparadas>>().LogError(e.Message);
                 }
                 finally
                 {

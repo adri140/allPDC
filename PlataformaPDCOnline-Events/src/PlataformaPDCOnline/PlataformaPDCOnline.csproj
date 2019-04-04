@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.0.0-preview.19074.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0-preview.19074.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0-preview.19074.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.9.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-preview.19074.2" />
     <PackageReference Include="Pdc.Denormalization" Version="1.0.0-beta.9" />
     <PackageReference Include="Pdc.DistributedLocks.Abstractions" Version="1.0.0-beta.9" />

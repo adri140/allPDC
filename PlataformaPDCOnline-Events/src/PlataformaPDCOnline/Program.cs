@@ -14,13 +14,13 @@ namespace PlataformaPDCOnline
 
         static void Main(string[] args)
         {
-            Receiver rec = new Receiver();
+            Receiver rec = Receiver.Singelton();
 
             Console.WriteLine("Press to Stop Services...");
             Console.ReadLine();
 
-            Console.WriteLine("Stoping services...");
             rec.EndServices();
+            Console.WriteLine("Stoping services...");
 
             Thread.Sleep(10000);
         }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "b2e90ffa7b381272bf3448c31120180260ec4beb"
+    "signature": "87de7db99771edda0484bb486616fab72758593c"
   },
   "compilationOptions": {},
   "targets": {
@@ -16,6 +16,7 @@
           "Microsoft.Extensions.Configuration.UserSecrets": "3.0.0-preview.19074.2",
           "Microsoft.Extensions.DependencyInjection": "3.0.0-preview.19074.2",
           "Microsoft.Extensions.Logging.Abstractions": "3.0.0-preview.19074.2",
+          "Microsoft.Extensions.Logging.ApplicationInsights": "2.9.1",
           "Microsoft.Extensions.Logging.Debug": "3.0.0-preview.19074.2",
           "OdbcDatabase": "1.0.0",
           "Pdc.Denormalization": "1.0.0-beta.9",
@@ -78,6 +79,20 @@
           }
         }
       },
+      "Microsoft.ApplicationInsights/2.9.1": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.StackTrace": "4.3.0",
+          "System.Net.Requests": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.ApplicationInsights.dll": {
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.26108"
+          }
+        }
+      },
       "Microsoft.Azure.Amqp/2.3.7": {
         "dependencies": {
           "System.Net.WebSockets.Client": "4.0.2",
@@ -102,9 +117,9 @@
           "System.Net.Http": "4.3.4",
           "System.Net.NameResolution": "4.3.0",
           "System.Net.NetworkInformation": "4.1.0",
-          "System.Net.Requests": "4.0.11",
+          "System.Net.Requests": "4.3.0",
           "System.Net.Security": "4.3.2",
-          "System.Net.WebHeaderCollection": "4.0.1",
+          "System.Net.WebHeaderCollection": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Security.SecureString": "4.0.0"
         },
@@ -457,6 +472,18 @@
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "3.0.0.0",
             "fileVersion": "3.0.0.19024"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.ApplicationInsights/2.9.1": {
+        "dependencies": {
+          "Microsoft.ApplicationInsights": "2.9.1",
+          "Microsoft.Extensions.Logging": "3.0.0-preview.19074.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.ApplicationInsights.dll": {
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.13465"
           }
         }
       },
@@ -1219,6 +1246,14 @@
           }
         }
       },
+      "System.Diagnostics.StackTrace/4.3.0": {
+        "dependencies": {
+          "System.IO.FileSystem": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Metadata": "1.4.1",
+          "System.Runtime": "4.3.0"
+        }
+      },
       "System.Diagnostics.Tools/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.0.0-preview.19073.11",
@@ -1538,7 +1573,7 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
-      "System.Net.Requests/4.0.11": {
+      "System.Net.Requests/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.0.0-preview.19073.11",
           "System.Collections": "4.3.0",
@@ -1548,7 +1583,7 @@
           "System.IO": "4.3.0",
           "System.Net.Http": "4.3.4",
           "System.Net.Primitives": "4.3.0",
-          "System.Net.WebHeaderCollection": "4.0.1",
+          "System.Net.WebHeaderCollection": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Threading": "4.3.0",
@@ -1616,7 +1651,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Net.WebHeaderCollection/4.0.1": {
+      "System.Net.WebHeaderCollection/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
@@ -1641,7 +1676,7 @@
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.Net.Primitives": "4.3.0",
-          "System.Net.WebHeaderCollection": "4.0.1",
+          "System.Net.WebHeaderCollection": "4.3.0",
           "System.Net.WebSockets": "4.0.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -1751,6 +1786,26 @@
           "Microsoft.NETCore.Platforms": "3.0.0-preview.19073.11",
           "System.Reflection": "4.3.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Metadata/1.4.1": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Collections.Immutable": "1.5.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.Compression": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
         }
       },
       "System.Reflection.Primitives/4.3.0": {
@@ -2319,6 +2374,13 @@
       "path": "humanizer.core/2.5.16",
       "hashPath": "humanizer.core.2.5.16.nupkg.sha512"
     },
+    "Microsoft.ApplicationInsights/2.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gAC+bFCr10ckAdM6VJ+aL0yfYfbYuklukYJoMjaSCOVHH/h4Xr9SiyPq+Befk/yUSdSv7Fa3nl0ynLATKIwKng==",
+      "path": "microsoft.applicationinsights/2.9.1",
+      "hashPath": "microsoft.applicationinsights.2.9.1.nupkg.sha512"
+    },
     "Microsoft.Azure.Amqp/2.3.7": {
       "type": "package",
       "serviceable": true,
@@ -2535,6 +2597,13 @@
       "sha512": "sha512-LCCJp88PjFt/d90C40pokHTbkfp313Los6XJULN/prA/A85+Cu3NhTVqYDAKPoJ4VKCzvgjF2lDg+59DBL5I0w==",
       "path": "microsoft.extensions.logging.abstractions/3.0.0-preview.19074.2",
       "hashPath": "microsoft.extensions.logging.abstractions.3.0.0-preview.19074.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.ApplicationInsights/2.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MJtrD5RzDbYwNKNLfGDBu1TQh5DqiL+/8cvdBovD0s6FtLz5doeHwhIyK8Kh24CCO3kTQOPQ85hRMnFPBJ9UGw==",
+      "path": "microsoft.extensions.logging.applicationinsights/2.9.1",
+      "hashPath": "microsoft.extensions.logging.applicationinsights.2.9.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging.Debug/3.0.0-preview.19074.2": {
       "type": "package",
@@ -2970,6 +3039,13 @@
       "path": "system.diagnostics.process/4.3.0",
       "hashPath": "system.diagnostics.process.4.3.0.nupkg.sha512"
     },
+    "System.Diagnostics.StackTrace/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BiHg0vgtd35/DM9jvtaC1eKRpWZxr0gcQd643ABG7GnvSlf5pOkY2uyd42mMOJoOmKvnpNj0F4tuoS1pacTwYw==",
+      "path": "system.diagnostics.stacktrace/4.3.0",
+      "hashPath": "system.diagnostics.stacktrace.4.3.0.nupkg.sha512"
+    },
     "System.Diagnostics.Tools/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3117,12 +3193,12 @@
       "path": "system.net.primitives/4.3.0",
       "hashPath": "system.net.primitives.4.3.0.nupkg.sha512"
     },
-    "System.Net.Requests/4.0.11": {
+    "System.Net.Requests/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vxGt7C0cZixN+VqoSW4Yakc1Y9WknmxauDqzxgpw/FnBdz4kQNN51l4wxdXX5VY1xjqy//+G+4CvJWp1+f+y6Q==",
-      "path": "system.net.requests/4.0.11",
-      "hashPath": "system.net.requests.4.0.11.nupkg.sha512"
+      "sha512": "sha512-OZNUuAs0kDXUzm7U5NZ1ojVta5YFZmgT2yxBqsQ7Eseq5Ahz88LInGRuNLJ/NP2F8W1q7tse1pKDthj3reF5QA==",
+      "path": "system.net.requests/4.3.0",
+      "hashPath": "system.net.requests.4.3.0.nupkg.sha512"
     },
     "System.Net.Security/4.3.2": {
       "type": "package",
@@ -3138,12 +3214,12 @@
       "path": "system.net.sockets/4.3.0",
       "hashPath": "system.net.sockets.4.3.0.nupkg.sha512"
     },
-    "System.Net.WebHeaderCollection/4.0.1": {
+    "System.Net.WebHeaderCollection/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0aLl8yaaH+/jyI0f1Mn9xOvBWWwyOaJm/pR2SPAN2RvxhTD/yxxPaZt5d+2KXAZdPkJOafS4QQ1GaXhZcMN16g==",
-      "path": "system.net.webheadercollection/4.0.1",
-      "hashPath": "system.net.webheadercollection.4.0.1.nupkg.sha512"
+      "sha512": "sha512-XZrXYG3c7QV/GpWeoaRC02rM6LH2JJetfVYskf35wdC/w2fFDFMphec4gmVH2dkll6abtW14u9Rt96pxd9YH2A==",
+      "path": "system.net.webheadercollection/4.3.0",
+      "hashPath": "system.net.webheadercollection.4.3.0.nupkg.sha512"
     },
     "System.Net.WebSockets/4.0.0": {
       "type": "package",
@@ -3214,6 +3290,13 @@
       "sha512": "sha512-rJkrJD3kBI5B712aRu4DpSIiHRtr6QlfZSQsb0hYHrDCZORXCFjQfoipo2LaMUHoT9i1B7j7MnfaEKWDFmFQNQ==",
       "path": "system.reflection.extensions/4.3.0",
       "hashPath": "system.reflection.extensions.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.Metadata/1.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tc2ZyJgweHCLci5oQGuhQn9TD0Ii9DReXkHtZm3aAGp8xe40rpRjiTbMXOtZU+fr0BOQ46goE9+qIqRGjR9wGg==",
+      "path": "system.reflection.metadata/1.4.1",
+      "hashPath": "system.reflection.metadata.1.4.1.nupkg.sha512"
     },
     "System.Reflection.Primitives/4.3.0": {
       "type": "package",

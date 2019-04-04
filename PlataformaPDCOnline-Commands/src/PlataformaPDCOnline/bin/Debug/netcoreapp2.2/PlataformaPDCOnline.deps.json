@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v2.2": {
       "PlataformaPDCOnline/1.0.0": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "2.9.1",
           "Microsoft.Extensions.Configuration": "3.0.0-preview.19074.2",
           "Microsoft.Extensions.Configuration.Abstractions": "3.0.0-preview.19074.2",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.0.0-preview.19074.2",

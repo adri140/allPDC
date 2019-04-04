@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 using Pdc.Hosting;
 using Pdc.Integration.BoundaryContext;
 using Pdc.Integration.Denormalization;
@@ -16,17 +17,29 @@ namespace PlataformaPDCOnline.internals.pdcOnline
 {
     public class Receiver
     {
+        private static Receiver receiver;
 
         private readonly IConfiguration configuration;
         private IHostedService boundedContext;
         private readonly IServiceProvider services;
 
-        public Receiver()
+        public static Receiver Singelton()
+        {
+            if (receiver == null) receiver = new Receiver();
+            return receiver;
+        }
+
+        private Receiver()
         {
             configuration = GetConfiguration();
             services = GetBoundedContextServices();
 
             RunServices();
+        }
+
+        public IServiceProvider GetServices()
+        {
+            return services;
         }
 
         private async void RunServices()
@@ -77,7 +90,12 @@ namespace PlataformaPDCOnline.internals.pdcOnline
         {
             var services = new ServiceCollection();
 
-            services.AddLogging(builder => builder.AddDebug());
+            //services.AddLogging(builder => builder.AddDebug());
+            services.AddLogging(logginBuilder =>
+            {
+                logginBuilder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
+                logginBuilder.AddApplicationInsights((string)Program.GetApplicationConfiguration("instrumentationKey"));
+            });
 
             services.AddAzureServiceBusEventSubscriber(
                 builder =>

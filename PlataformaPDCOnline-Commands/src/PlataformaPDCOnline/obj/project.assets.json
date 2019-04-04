@@ -9009,7 +9009,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "Microsoft.ApplicationInsights >= 2.9.1",
       "Microsoft.Extensions.Configuration >= 3.0.0-preview.19074.2",
       "Microsoft.Extensions.Configuration.Abstractions >= 3.0.0-preview.19074.2",
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 3.0.0-preview.19074.2",
@@ -9081,10 +9080,6 @@
     "frameworks": {
       "netcoreapp2.2": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": {
-            "target": "Package",
-            "version": "[2.9.1, )"
-          },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[3.0.0-preview.19074.2, )"
