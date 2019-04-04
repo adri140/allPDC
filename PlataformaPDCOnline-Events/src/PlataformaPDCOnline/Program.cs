@@ -1,11 +1,17 @@
 ﻿using PlataformaPDCOnline.internals.pdcOnline;
 using System;
+using System.Configuration;
 using System.Threading;
 
 namespace PlataformaPDCOnline
 {
-    class Program
+    public class Program
     {
+        public static object GetApplicationConfiguration(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
         static void Main(string[] args)
         {
             Receiver rec = new Receiver();

@@ -8,13 +8,13 @@ namespace OdbcDatabase.database
 {
     public class DatabaseTools
     {
-        public static string GetConnectionString(string section)
+        public static string GetConnectionString(string fileRute, string section)
         {
             string connectionString = "";
 
             try
             {
-                string[] linias = System.IO.File.ReadAllLines(@"C:/connectionDatabase.ini");
+                string[] linias = System.IO.File.ReadAllLines(fileRute);
 
                 Boolean lectura = false;
 

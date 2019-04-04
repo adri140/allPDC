@@ -12,7 +12,7 @@ namespace PlataformaPDCOnline
 {
     public class Program
     {
-        public static object getApplicationConfiguration(string key)
+        public static object GetApplicationConfiguration(string key)
         {
             return ConfigurationManager.AppSettings[key];
         }

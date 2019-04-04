@@ -29,6 +29,7 @@
     <PackageReference Include="Pdc.Persistence.DocumentDB" Version="1.0.0-beta.9" />
     <PackageReference Include="Pdc.UnitOfWork" Version="1.0.0-beta.9" />
     <PackageReference Include="Pdc.UnitOfWork.Abstractions" Version="1.0.0-beta.9" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>

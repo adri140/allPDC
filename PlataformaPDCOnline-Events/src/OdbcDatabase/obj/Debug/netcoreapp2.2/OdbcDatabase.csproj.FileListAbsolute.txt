@@ -16,3 +16,12 @@ C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\OdbcDatabase\ob
 C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.AssemblyInfo.cs
 C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.dll
 C:\Users\adrianrecio\source\repos\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.pdb
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\bin\Debug\netcoreapp2.2\OdbcDatabase.deps.json
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\bin\Debug\netcoreapp2.2\OdbcDatabase.dll
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\bin\Debug\netcoreapp2.2\OdbcDatabase.pdb
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.csprojAssemblyReference.cache
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.csproj.CoreCompileInputs.cache
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.AssemblyInfoInputs.cache
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.AssemblyInfo.cs
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.dll
+C:\Users\adrianrecio\source\repos\allPDC\PlataformaPDCOnline-Events\src\OdbcDatabase\obj\Debug\netcoreapp2.2\OdbcDatabase.pdb

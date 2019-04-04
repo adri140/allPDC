@@ -124,7 +124,7 @@ namespace PlataformaPDCOnline.Internals.pdcOnline.Sender
             services.AddLogging(logginBuilder =>
             {
                 logginBuilder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
-                logginBuilder.AddApplicationInsights((string) Program.getApplicationConfiguration("instrumentationKey"));
+                logginBuilder.AddApplicationInsights((string) Program.GetApplicationConfiguration("instrumentationKey"));
             });
             //services.AddLogging(builder => builder.AddDebug());
             
