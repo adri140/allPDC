@@ -26,3 +26,4 @@ C:\Users\adrianrecio\source\repos\allPdc\PlataformaPDCOnline-Commands\src\Plataf
 C:\Users\adrianrecio\source\repos\allPdc\PlataformaPDCOnline-Commands\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.csproj.CopyComplete
 C:\Users\adrianrecio\source\repos\allPdc\PlataformaPDCOnline-Commands\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.dll
 C:\Users\adrianrecio\source\repos\allPdc\PlataformaPDCOnline-Commands\src\PlataformaPDCOnline\obj\Debug\netcoreapp2.2\PlataformaPDCOnline.pdb
+C:\Users\adrianrecio\source\repos\allPdc\PlataformaPDCOnline-Commands\src\PlataformaPDCOnline\bin\Debug\netcoreapp2.2\PlataformaPDCOnline.dll.config

@@ -22,7 +22,7 @@ namespace PlataformaPDCOnline.Internals.plataforma
 
         private ConsultasPreparadas()
         {
-            Infx = new InformixOdbcDao();
+            Infx = new InformixOdbcDao((string) Program.getApplicationConfiguration("rutaIniFile"), (string) Program.getApplicationConfiguration("firstSection"));
         }
 
         public static ConsultasPreparadas Singelton()

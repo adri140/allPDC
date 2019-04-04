@@ -9,11 +9,11 @@ namespace OdbcDatabase.database
     {
         public InformixOdbcDatabase Database { get; private set; }
 
-        public InformixOdbcDao()
+        public InformixOdbcDao(string rutaIniFile, string section)
         {
             try
             {
-                if (Database == null) { Database = new InformixOdbcDatabase(DatabaseTools.GetConnectionString("[OdbcInformixServer]")); }
+                if (Database == null) { Database = new InformixOdbcDatabase(DatabaseTools.GetConnectionString(rutaIniFile, section)); }
             }
             catch(Exception e)
             {
