@@ -1,0 +1,38 @@
+Fecha: 05/04/2019 10:50m
+
+normas de implementación:
+	->respetar los namespace:
+		->Commands: PlataformaPDCOnline.Editable.pdcOnline.Commands
+		->Events: PlataformaPDCOnline.Editable.pdcOnline.Events
+		->EventsHandlers: PlataformaPDCOnline.Editable.EventsHandlers
+	Todas las clases deben ser publicas
+
+		**Los EventsHandlers contienen el código que se ejecutara al recibir un Evento, este código puede llamar a otras funciones, tanto internas de la clase en cuestión, o externas a esta.
+		**Los Commands son las clases que se enviaran en formato json, estos contendrán los atributos especificados en la base de datos, el UID es heredado, es decir, la clase Command almacena el ID
+		**Los Events son el resultado de procesar los Commands, estos indican la realización de los Commands
+
+	implementación de Commands:
+		-> explicado en el archivo 'normas de implementación'.
+	implementación de Events:
+		-> El primer paso es indicar en la base de datos que hay un nuevo evento que tratar, para esto, inserta en la tabla 'webevents' los siguientes campos como mínimo:
+			'eventname', 'tablename', 'uidname'
+			donde 'eventname' : nombre del evento
+			donde 'tablename' : nombre de la tabla en la que se encuentran los datos de este evento en la base de datos
+			donde 'uidname' : nombre del campo uid de la tabla
+
+		-> Crea un fichero/clase, con el nombre de la Tabla + 'Events'.cs ej: 'WebUsersEvents.cs'
+		-> En el fichero/clase genera tantas clases como eventos vallas a tratar, estas clases deben extender de Events.
+		-> Una vez generada añade los atributos que contendra, estos pueden ser pasados por el constructor, de tal forma que obligatoriamente tendra esos atributos
+
+	implementación de EventsHandlers:
+		-> Crea un fixero/clase, con el nombre de la tabla + 'EventsHandlers' ej: 'WebUsersEventsHandlers.cs'
+			En el crearemos tantas clases como Eventos allamos introducido.
+		-> Cada clase extendera de 'IEventHandler<'Evento'>' localizada en 'Pdc.Messaging'
+			Este te obligara a implementar el metodo 'HandleAsync', hacemos que lo autogenere y le añadimos 'async' después del public, si no tiene 'public' se lo añadimos,
+			este metodo contendra todas las acciones que queremos que se realize al recibir un evento, puedes añadir mas metodos en esta misma clase y llamarlos desde aqui, o llamar a funciones externas,
+			como por ejemplo llamar a consultas preparadas, la qual ja tiene un metodo preparado que te actualiza en la base de datos el 'changeValue' y el 'eventCommit' de la tabla 'webevents' de la base de datos.
+
+	--->
+	Otros:
+		ISagas: Generan un evento a partir de un command, esto no se trata en esta aplicación.
+		CommandsHandlers: Trata los commands recividor, esto no se trata en esta aplicación.
