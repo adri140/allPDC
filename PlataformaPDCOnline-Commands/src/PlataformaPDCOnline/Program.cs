@@ -22,7 +22,7 @@ namespace PlataformaPDCOnline
 
         public static void Main(string[] args)
         {
-            Sender.Singelton(); //iniciamos el sender.
+            Sender.Singelton(); //iniciamos el sender, para asi tambien iniciar el logger
 
             StartFunction();
 
@@ -32,13 +32,13 @@ namespace PlataformaPDCOnline
             }
             catch(NullReferenceException ne)
             {
-                //Sender.Singelton().TrackException(ne);
                 Console.WriteLine(ne.Message);
+                Sender.Singelton().GetServices().GetRequiredService<ILogger>().LogError(ne.Message);
             }
             catch(Exception e)
             {
-                //Sender.Singelton().TrackException(e);
                 Console.WriteLine(e.Message);
+                Sender.Singelton().GetServices().GetRequiredService<ILogger>().LogError(e.Message);
             }
 
             Console.WriteLine("Total commands enviados: " + TotalCommandsEnviados);

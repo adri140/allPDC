@@ -51,7 +51,7 @@ namespace PlataformaPDCOnline.internals.pdcOnline
                 
                 await boundedContext.StartAsync(default);
             }
-            Console.WriteLine("Iniciado..");
+            Console.WriteLine("Iniciado.."); //muestra por consola
         }
 
         public async void EndServices()
@@ -100,8 +100,6 @@ namespace PlataformaPDCOnline.internals.pdcOnline
             services.AddAzureServiceBusEventSubscriber(
                 builder =>
                 {
-                    builder.AddEventHandler<CustomerCreated, CustomerDenormalizer>();
-
                     builder.AddEventHandler<WebUserCreated, WebUserCreatedHandler>();
                     builder.AddEventHandler<WebUserUpdated, WebUserUpdatedHandler>();
                     builder.AddEventHandler<WebUserDeleted, WebUserDeletedHandler>();
